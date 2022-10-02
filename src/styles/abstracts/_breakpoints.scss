@@ -1,0 +1,29 @@
+@use "functions" as *;
+
+$breakpoints: (
+  mobile-sm: toEm(320),
+  mobile-md: toEm(375),
+  mobile-lg: toEm(425),
+  tablet-sm: toEm(768),
+  tablet-md: toEm(1023),
+  desktop-sm: toEm(1280),
+  desktop-md: toEm(1440),
+  desktop-lg: toEm(1920),
+);
+
+// $breakpoints: (
+//   mobile: (
+//     sm: toEm(320),
+//     md: toEm(375),
+//     lg: toEm(425),
+//   ),
+//   tablet: (
+//     sm: toEm(768),
+//     md: toEm(1024),
+//   ),
+//   desktop: (
+//     sm: toEm(1280),
+//     md: toEm(1440),
+//     lg: toEm(1920),
+//   ),
+// );

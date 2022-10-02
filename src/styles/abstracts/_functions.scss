@@ -1,0 +1,50 @@
+@use "sass:math";
+
+// NOTE: Pixels to REMs
+@function toRem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error "Don\t use units when using the rem() function; Only numbers";
+  }
+}
+
+// NOTE: Pixels to EMs
+@function toEm($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error "Don\t use units when using the em() function; Only numbers";
+  }
+}
+
+@function vrtRatio($fs) {
+  @return $fs * 1.2;
+}
+
+@function hrzRatio($fs) {
+  @return $fs * 1.125;
+}
+
+@function fsAtBreakpoint($breakpoint, $ratio) {
+  $base-fs: 16;
+  @if ($breakpoint == "mobile-sm") {
+    @return toRem($base-fs);
+  } @else if ($breakpoint == "mobile-md") {
+    @return toRem($base-fs * $ratio);
+  } @else if ($breakpoint == "mobile-md") {
+    @return toRem($base-fs * math.pow($ratio, 2));
+  } @else if ($breakpoint == "mobile-lg") {
+    @return toRem($base-fs * math.pow($ratio, 3));
+  } @else if ($breakpoint == "tablet-sm") {
+    @return toRem($base-fs * math.pow($ratio, 4));
+  } @else if ($breakpoint == "tablet-md") {
+    @return toRem($base-fs * math.pow($ratio, 5));
+  } @else if ($breakpoint == "desktop-sm") {
+    @return toRem($base-fs * math.pow($ratio, 6));
+  } @else if ($breakpoint == "desktop-md") {
+    @return toRem($base-fs * math.pow($ratio, 7));
+  } @else if ($breakpoint == "desktop-lg") {
+    @return toRem($base-fs * math.pow($ratio, 8));
+  }
+}

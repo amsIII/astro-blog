@@ -1,0 +1,66 @@
+@use "../abstracts/" as *;
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: map-get($colors, bw, 700);
+  margin: auto;
+  padding: 20px;
+  max-width: 80ch;
+  width: 100%;
+  text-align: left;
+}
+
+i.fa-solid {
+  color: map-get($colors, bw, 700);
+}
+
+h1 {
+  font-weight: 900;
+  @include font-size(
+    $breakpoints,
+    map-get($fsms-px-scale, xxxl),
+    $fs-hrz-ratio
+  );
+}
+h2 {
+  @include font-size($breakpoints, map-get($fsms-px-scale, xxl), $fs-hrz-ratio);
+}
+h3 {
+  @include font-size($breakpoints, map-get($fsms-px-scale, xl), $fs-hrz-ratio);
+}
+h4 {
+  @include font-size($breakpoints, map-get($fsms-px-scale, lg), $fs-hrz-ratio);
+}
+h5 {
+  @include font-size($breakpoints, map-get($fsms-px-scale, md), $fs-hrz-ratio);
+}
+h6 {
+  @include font-size(
+    $breakpoints,
+    map-get($fsms-px-scale, base),
+    $fs-hrz-ratio
+  );
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}

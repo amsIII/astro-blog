@@ -1,0 +1,66 @@
+@use "../abstracts/breakpoints.scss" as *;
+@use "../abstracts/functions.scss" as *;
+
+@use "sass:math";
+
+@mixin mediaQueries($screen) {
+  $screenSize: map-get($breakpoints, $screen);
+
+  @media screen and (min-width: #{$screenSize}) {
+    // font-size: fsAtBreakpoint(320px, 16, 3.125);
+    @content;
+  }
+}
+
+// @debug map-get($breakpoints, mobile-sm);
+
+@mixin font-size($breakpoint-map, $fs-base, $ratio) {
+  @each $fs-breakpoint, $mq-width in $breakpoint-map {
+    @if ($fs-breakpoint == "mobile-sm") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base);
+        @content;
+      }
+    } @else if ($fs-breakpoint == "mobile-md") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base);
+        @content;
+      }
+    } @else if ($fs-breakpoint == "mobile-md") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base);
+        @content;
+      }
+    } @else if ($fs-breakpoint == "mobile-lg") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base);
+        @content;
+      }
+    } @else if ($fs-breakpoint == "tablet-sm") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base * math.pow($ratio, 2));
+        @content;
+      }
+    } @else if ($fs-breakpoint == "tablet-md") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base * math.pow($ratio, 3));
+        @content;
+      }
+    } @else if ($fs-breakpoint == "desktop-sm") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base * math.pow($ratio, 4));
+        @content;
+      }
+    } @else if ($fs-breakpoint == "desktop-md") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base * math.pow($ratio, 5));
+        @content;
+      }
+    } @else if ($fs-breakpoint == "desktop-lg") {
+      @media screen and (min-width: $mq-width) {
+        font-size: toRem($fs-base * math.pow($ratio, 6));
+        @content;
+      }
+    }
+  }
+}

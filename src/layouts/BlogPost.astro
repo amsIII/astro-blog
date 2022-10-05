@@ -1,4 +1,5 @@
 ---
+import "../styles/components/blogpost.scss";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -21,45 +22,39 @@ const {
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style lang="scss">
-      article {
-        img {
-          height: auto;
-        }
-        .title {
-          display: flex;
-          justify-content: space-between;
-          /* align-items: center; */
-          margin: 0.25em 0 0;
-        }
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
-    </style>
   </head>
 
   <body>
     <Header />
-    <main>
+    <main class="blogpost-main">
       <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <section class="title">
-          <h1>{title}</h1>{pubDate && <time>{pubDate}</time>}
-        </section>
-        <p>{description}</p>
+        <div>
+          <div class="blogpost-img">
+            {
+              heroImage && (
+                <img width={1000} height={420} src={heroImage} alt="" />
+              )
+            }
+          </div>
+          <div>
+            {pubDate && <time>{pubDate}</time>}
+            <h1 class="title">{title}</h1>
 
-        {
-          updatedDate && (
-            <div>
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        <hr />
-        <!-- SLOT indicates where the markdown should be rendered -->
-        <slot />
+            <p class="description">{description}</p>
+            {
+              updatedDate && (
+                <div>
+                  Last updated on <time>{updatedDate}</time>
+                </div>
+              )
+            }
+          </div>
+        </div>
+        <section class="blogpost-article">
+          <!-- <hr /> -->
+          <!-- SLOT indicates where the markdown should be rendered -->
+          <slot />
+        </section>
       </article>
     </main>
     <Footer />

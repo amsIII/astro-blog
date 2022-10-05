@@ -3,10 +3,19 @@
 
 @use "sass:math";
 
-@mixin mediaQueries($screen) {
+@mixin mqLargerThan($screen) {
   $screenSize: map-get($breakpoints, $screen);
 
   @media screen and (min-width: #{$screenSize}) {
+    // font-size: fsAtBreakpoint(320px, 16, 3.125);
+    @content;
+  }
+}
+
+@mixin mqSmallerThan($screen) {
+  $screenSize: map-get($breakpoints, $screen);
+
+  @media screen and (max-width: #{$screenSize}) {
     // font-size: fsAtBreakpoint(320px, 16, 3.125);
     @content;
   }

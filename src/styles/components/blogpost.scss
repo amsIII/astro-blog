@@ -1,0 +1,82 @@
+@use "../abstracts/" as *;
+
+$bt-top: 0.75rem;
+
+.blogpost-main {
+  // background: red;
+
+  // ARTICLE CONTAINER
+  article {
+    background-color: white;
+    margin: 0 auto;
+    overflow: hidden;
+    // position: relative;
+
+    @include mqLargerThan(tablet-sm) {
+      max-width: 95%;
+      border-radius: 10px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        inset: 0;
+        padding: 1px;
+        border-radius: 10px;
+        background: linear-gradient(
+          0deg,
+          map-get($colors, bw, 300) 75%,
+          transparent 90%
+        );
+        -webkit-mask: linear-gradient(map-get($colors, bw, 300) 0 0) content-box,
+          linear-gradient(map-get($colors, bw, 300) 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+    }
+
+    // ARTICLE IMAGE
+    .blogpost-img {
+      position: relative;
+      width: 100%;
+      word-break: break-word;
+      padding: 42%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        object-fit: scale-down;
+        object-position: 100% 0%;
+        height: 100%;
+        width: 100%;
+
+        @include mqLargerThan(tablet-sm) {
+          border-radius: 10px 10px 0 0;
+        }
+      }
+    }
+    // ARTICLE TEXT CONTENT CONTAINER
+    .blogpost-article {
+      margin: 0 auto;
+      padding: 1.25rem;
+      width: 100%;
+      text-align: left;
+
+      @include mqLargerThan(tablet-sm) {
+        padding: 2.5rem;
+      }
+
+      .description {
+        color: rebeccapurple;
+        // color: map-get($colors, splitcomp, 300);
+      }
+
+      hr {
+        border-top: 2px solid map-get($colors, bw, 200);
+        margin: 1rem 0;
+      }
+    }
+  }
+}

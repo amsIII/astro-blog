@@ -3,6 +3,8 @@ import "../styles/components/blogpost.scss";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import MyInfo from "../components/MyInfo.astro";
 
 export interface Props {
   content: {
@@ -27,35 +29,37 @@ const {
   <body>
     <Header />
     <main class="blogpost-main">
-      <article>
-        <div>
-          <div class="blogpost-img">
-            {
-              heroImage && (
-                <img width={1000} height={420} src={heroImage} alt="" />
-              )
-            }
-          </div>
-          <div>
-            {pubDate && <time>{pubDate}</time>}
-            <h1 class="title">{title}</h1>
+      <Nav />
+      <section class="blogpost-section">
+        <article>
+          <section class="blogpost-header">
+            <div class="blogpost-header__img">
+              {
+                heroImage && (
+                  <img width={1000} height={420} src={heroImage} alt="" />
+                )
+              }
+            </div>
+            <div class="blogpost-header__text">
+              {pubDate && <time>{pubDate}</time>}
+              <h1 class="title">{title}</h1>
 
-            <p class="description">{description}</p>
-            {
-              updatedDate && (
-                <div>
-                  Last updated on <time>{updatedDate}</time>
-                </div>
-              )
-            }
-          </div>
-        </div>
-        <section class="blogpost-article">
-          <!-- <hr /> -->
-          <!-- SLOT indicates where the markdown should be rendered -->
-          <slot />
-        </section>
-      </article>
+              <p class="description">{description}</p>
+              {
+                updatedDate && (
+                  <div>
+                    Last updated on <time>{updatedDate}</time>
+                  </div>
+                )
+              }
+            </div>
+          </section>
+          <section class="blogpost-article">
+            <slot />
+          </section>
+        </article>
+      </section>
+      <!-- <MyInfo /> -->
     </main>
     <Footer />
   </body>

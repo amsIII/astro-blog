@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+.myInfo {
+  display: none;
+
+  @include mqLargerThan(tablet-sm) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

@@ -45,6 +45,7 @@ $bt-top: 0.75rem;
         }
       }
 
+      // HEADER > IMAGE > DATE > DESC
       .blogpost-header {
         // ARTICLE IMAGE
         &__img {
@@ -73,13 +74,26 @@ $bt-top: 0.75rem;
 
         &__text {
           padding: $content-p-x;
+
+          .description {
+            width: 30ch;
+            margin-bottom: 0;
+            text-indent: 0;
+            color: darken($color: map-get($gmk9009, green), $amount: 20%);
+          }
         }
+      }
+
+      hr {
+        width: calc(100% - ($content-p-x * 2));
+        border-top: 1px solid map-get($colors, bw, 200);
+        margin: 1rem auto;
       }
 
       // ARTICLE TEXT CONTENT CONTAINER
       .blogpost-article {
         margin: 0 auto;
-        padding: 1.25rem;
+        padding: $content-p-x;
         width: 100%;
         text-align: left;
 
@@ -87,14 +101,11 @@ $bt-top: 0.75rem;
           padding: 2.5rem;
         }
 
-        .description {
-          color: rebeccapurple;
-          // color: map-get($colors, splitcomp, 300);
-        }
-
-        hr {
-          border-top: 2px solid map-get($colors, bw, 200);
-          margin: 1rem 0;
+        p {
+          // width: 29ch;
+          text-align: justify;
+          text-indent: 2.5ch;
+          margin-bottom: 1.25rem;
         }
       }
     }

@@ -41,19 +41,21 @@ const {
               }
             </div>
             <div class="blogpost-header__text">
-              {pubDate && <time>{pubDate}</time>}
+              {pubDate && <time class="date">{pubDate}</time>}
+
               <h1 class="title">{title}</h1>
 
               <p class="description">{description}</p>
-              {
+              <!-- {
                 updatedDate && (
                   <div>
                     Last updated on <time>{updatedDate}</time>
                   </div>
                 )
-              }
+              } -->
             </div>
           </section>
+          <hr />
           <section class="blogpost-article">
             <slot />
           </section>

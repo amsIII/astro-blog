@@ -3,13 +3,24 @@ const today = new Date();
 ---
 
 <footer>
-  &copy; {today.getFullYear()}
-  <span>AMSIII</span> All rights reserved.
+  <section>
+    &copy; {today.getFullYear()}
+    <span>AMSIII</span> All rights reserved.
+  </section>
 </footer>
 
 <style lang="scss">
   footer {
-    padding: 25px;
-    text-align: center;
+    position: absolute;
+    bottom: 0;
+    height: 2rem;
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    section {
+      // height: 100%;
+      margin: 0 auto;
+    }
   }
 </style>

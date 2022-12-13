@@ -1,0 +1,12 @@
+---
+export interface Props {
+  // question makes the props optional
+  text?: string;
+  secondary?: boolean;
+}
+
+const { text = "Button", secondary } = Astro.props as Props;
+---
+
+<!-- NOTE: ${dark && "dark"} - reads as: if dark is true then add class of dark -->
+<button class={`btn ${secondary && "secondary"}`}>{text}</button>

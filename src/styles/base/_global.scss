@@ -1,14 +1,15 @@
 @use "../abstracts/" as *;
 
+* {
+  transition: font-size 0.3s ease-in-out;
+}
+
 body {
+  // padding-top: 60px;
+  margin: 0 auto;
   font-family: "Montserrat", sans-serif;
   color: map-get($gmk9009, black);
-  margin: 0 auto;
-  background-color: map-get($gmk9009, beige);
-  // padding: 20px;
-  // max-width: 80ch;
-  // width: 100%;
-  // text-align: left;
+  background-color: lighten($color: map-get($gmk9009, beige), $amount: 10%);
 }
 
 i.fa-solid {
@@ -64,4 +65,11 @@ a,
 a:visited {
   text-decoration: none;
   color: inherit;
+}
+
+.main {
+  background-color: orchid;
+  padding-top: 60px;
+  /* w/o min-hieght footer is pushed out of viewport */
+  min-height: calc(100vh - 2rem);
 }

@@ -5,8 +5,11 @@ $bt-top: 0.75rem;
 // TODO: Make grid layout
 
 .blogpost-main {
+  padding-top: 61px;
+
   @include mqLargerThan(tablet-sm) {
-    padding: 0 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: grid;
     grid-template-columns: minmax(100px, 1fr) 7fr;
     grid-template-rows: 1fr;
